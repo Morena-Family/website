@@ -1,0 +1,11 @@
+{
+  "name": "morena-family-website",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  }, 
+  "main": "server.js",  
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
