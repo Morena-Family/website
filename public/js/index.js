@@ -4,7 +4,7 @@ if (window.eruda) {
   });
 }
 
-new Theme().toggle(10)
+new Theme().automatic();
 
 var tab_content = document.getElementById("tab_content");
 var input_content = document.getElementById("input_content");
@@ -19,6 +19,8 @@ var content_tops = document.getElementById("content_tops");
 var content_chat_room = document.getElementById("content_chat_room");
 var content_camera = document.getElementById("content_camera");
 var content_detalis_profile = document.getElementById("content_detalis_profile");
+var content_login = document.getElementById("content_login");
+var content_profile = document.getElementById("content_profile");
 
 var get_files_content = document.getElementById("get_files_content");
 var image_to_send_content = document.getElementById("image_to_send_content");
@@ -59,16 +61,19 @@ getStatus(function(status) {
     case "user":
       btn_add_event.style.display = "block";
       btn_start_chat.style.display = "block";
+      content_profile.style.display = "flex";
       break;
     case "admin":
       btn_start_chat.style.display = "block";
       btn_add_event.style.display = "block";
       btn_add_article.style.display = "block";
       btn_add_aid.style.display = "block";
+      content_profile.style.display = "flex";
       break;
     case "observer": default:
       content_chat_room.innerHTML = "<h2>No estás registrado</h2>";
       drawerBar.disable = true;
+      content_login.style.display = "block";
       break;
   }
 })
