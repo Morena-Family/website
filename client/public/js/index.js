@@ -1,9 +1,3 @@
-if (window.eruda) {
-  eruda.init({
-    theme: 'dark'
-  });
-}
-
 new Theme().automatic();
 
 var tab_content = document.getElementById("tab_content");
@@ -32,6 +26,9 @@ var video_camera_chat = document.getElementById("video_camera_chat");
 var details_profile_name = document.getElementById("details_profile_name");
 var details_profile_id = document.getElementById("details_profile_id");
 var details_profile_info = document.getElementById("details_profile_info");
+var input_password_login = document.getElementById('input_password_login');
+var btn_show_password = document.getElementById('btn_show_password_login');
+var input_content_password_login = document.getElementById('input_content_password_login');
 
 var btn_start_chat = document.getElementById("btn_start_chat");
 var btn_send_message = document.getElementById("btn_send_message");
@@ -44,6 +41,7 @@ var btn_add_event = document.getElementById("btn_add_event");
 var btn_add_article = document.getElementById("btn_add_article");
 var btn_add_aid = document.getElementById("btn_add_aid");
 var btn_post_aid = document.getElementById("btn_post_aid");
+var btn_admin_more = document.getElementById("btn_admin_more");
 
 var btn_close_chat = document.getElementById("btn_close_chat");
 var btn_close_get_files = document.getElementById("btn_close_get_files");
@@ -68,12 +66,14 @@ getStatus(function(status) {
       btn_add_event.style.display = "block";
       btn_add_article.style.display = "block";
       btn_add_aid.style.display = "block";
+      btn_admin_more.style.transform = "translateY(0)"
       content_profile.style.display = "flex";
       break;
     case "observer": default:
       content_chat_room.innerHTML = "<h2>No estás registrado</h2>";
       drawerBar.disable = true;
       content_login.style.display = "block";
+      setEditPassword(input_content_password_login, input_password_login, btn_show_password)
       break;
   }
 })
@@ -150,6 +150,7 @@ btn_add_aid.onclick = function() {
     content_add_aid.style.transform = "scale(0)";
   }
 }
+document.body.scrollTop = document.body.scrollHeight;
 function imageDescription(img, callback) {
   image_to_send_content.style.transform = "translateY(0)";
   var btn_send_image_and_message = document.getElementById("btn_send_image_and_message");
@@ -266,23 +267,35 @@ tabActive("btn_home", null);
 
 tabActive("btn_chat_room", function() {
   viewPage.move(0);
-  btn_start_chat.style.transform = "translateY(0)"
+
+  btn_start_chat.style.transform = "translateY(0)";
+  btn_admin_more.style.transform = "translateY(150px)"
 });
 tabActive("btn_event", function() {
   viewPage.move(1);
+
+
   btn_start_chat.style.transform = "translateY(100px)"
+  btn_admin_more.style.transform = "translateY(0)"
 });
 tabActive("btn_home", function() {
   viewPage.move(2);
+
+
   btn_start_chat.style.transform = "translateY(100px)"
+  btn_admin_more.style.transform = "translateY(0)"
 });
 tabActive("btn_top", function() {
   viewPage.move(3);
+
+
   btn_start_chat.style.transform = "translateY(100px)"
+  btn_admin_more.style.transform = "translateY(0)"
 });
 tabActive("btn_help", function() {
   viewPage.move(4);
   btn_start_chat.style.transform = "translateY(100px)"
+  btn_admin_more.style.transform = "translateY(0)"
 });
 /*Creación del Drawer Bar */
 drawerBar.type = "top";

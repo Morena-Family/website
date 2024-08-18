@@ -92,6 +92,28 @@ function setIconUse(element, icon) {
     }
   }
 }
+function setEditPassword(content, input, btn) {
+  var isHidden_Password = false;
+  btn.onclick = function() {
+    isHidden_Password = !isHidden_Password;
+    if (isHidden_Password) {
+      input.type = "text";
+      setIconUse(btn, "icon_hidden_password")
+      btn.style.transform = "rotate(360deg)"
+    } else {
+      input.type = "password";
+      btn.style.transform = "rotate(0)";
+      setIconUse(btn, "icon_show_password");
+    }
+  }
+  input.addEventListener('input', function() {
+    if (this.value.trim() !== '') {
+      content.classList.add("active")
+    } else {
+      content.classList.remove("active")
+    }
+  });
+}
 function optionsEdit(item, content, rm, edit) {
   var _content = document.createElement("div");
   _content.className = "content-edit-articles"
@@ -222,7 +244,8 @@ function addAid(content, id, title, text, linkYoutube, isEdit = false, rm = Func
   _content.appendChild(_iframe);
   content.appendChild(_content);
 }
-function addCustomAds(id, linksImages) {
+
+/*function addCustomAds(id, linksImages) {
   var content = document.getElementById(id);
   content.className = "custom-ads"
   var listImages = [];
@@ -268,7 +291,7 @@ function addCustomAds(id, linksImages) {
     content.appendChild(item);
   },
     100);
-}
+}*/
 function addEvent(content, id, user_name, date, image, details) {
   var _content = document.createElement("div");
   _content.className = "item-event";

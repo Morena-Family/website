@@ -7,6 +7,7 @@
   --colorControl: #7af38b;
   --bgBtn: #414141;
   --textHint: #b2b2b2;
+    --sizeInputEdit: 20px;
 }
 :root {
   --textColor: #424242;
@@ -17,4 +18,5 @@
   --bgBtn: #b4f8bd;
   --btnActive: #d5fdda;
   --textHint: #666666;
+  --sizeInputEdit: 20px;
 }
