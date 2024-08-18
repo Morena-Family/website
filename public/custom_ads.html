@@ -1,0 +1,230 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  .custom-ads {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .custom-ads-item {
+    width: calc(100vw- 20px);
+    height: calc(100vh - 20px);
+    margin: 10px;
+  }
+  .custom-ads-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.211);
+  }
+  #content_edit {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    /*   justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    /* justify-content: center;
+    align-items: center;
+    text-align: center;*/
+
+  }
+  /*  #content_edit img {
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }*/
+  #content_edit button {
+    width: 100%;
+    height: 100%;
+  }
+  .btn-add {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .btn-add * {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    flex: 1;
+  }
+  .item {
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+  }
+  .item div {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 3;
+    right: 20px;
+    top: 20px;
+  }
+  .item img {
+    width: 100vh;
+    height: 100vh;
+
+  }
+  .item div * {
+    width: 100%;
+    height: 100%;
+  }
+  #btn_edit {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    width: 30px;
+    height: 30px;
+  }
+  #btn_edit svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="icon_close" viewBox="0 0 100 100">
+    <circle id='cir' cy="50" cx="50" r="49" fill='#434343' stroke="#ffffff" stroke-width="2" />  <line x1="35" y1="35" x2="65" y2="65" style="stroke:#dfdfdf;stroke-width:3;stroke-linecap:round" /><line x1="65" y1="35" x2="35" y2="65" style="stroke:#dfdfdf;stroke-width:3;stroke-linecap:round" />
+  </symbol>
+  <symbol id="icon_more" viewBox="0 0 100 100">
+    <circle id='cir' cy="50" cx="50" r="49" fill='#434343' stroke="#ffffff" stroke-width="2" /> <line x1="50" y1="30" x2="50" y2="70" style="stroke:#dfdfdf;stroke-width:3;stroke-linecap:round" /><line x1="70" y1="50" x2="30" y2="50" style="stroke:#dfdfdf;stroke-width:3;stroke-linecap:round" />
+  </symbol>
+  <symbol id="icon_edit" viewBox="0 0 100 100">
+    <circle id='cir' cy="50" cx="50" r="49" fill='#434343' stroke="#ffffff" stroke-width="2" /><path d="M30 75 L35 60 L60 20 70 25 L45 65 L30 75 M55 30 L63 34 M30 75 35 70" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" /><path d="M35 60 43 57 L45 65 M43 57 58 33" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  </symbol>
+  <symbol id="icon_delete" viewBox="0 0 100 100">
+    <circle id='cir' cy="50" cx="50" r="49" fill='#434343' stroke="#ffffff" stroke-width="2" /><path d="M30 30 L45 30 L45 25 L55 25 L55 30 L70 30" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" /><path d="M35 37 40 70 L60 70 L65 37" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+  </symbol>
+</svg>
+<div id="btn_edit">
+  <svg>
+    <use xlink:href="#icon_edit" />
+  </svg>
+</div>
+<div id="content_edit">
+  <div id="btn_more" class="btn-add">
+    <svg>
+      <use xlink:href="#icon_more" />
+    </svg>
+  </div>
+</div>
+<div id="content"></div>
+<div id="id_error" style="display:none;color:red;">
+  <h1>Not found</h1>
+  <h3>Error custom ads</h3>
+</div>
+
+<script src="./js/console.js"></script>
+<script src="./js/client.js"></script>
+<script src="./js/design.js"></script>
+<script>
+ /* if (window.eruda) {
+    eruda.init({
+      theme: 'dark'
+    });
+  }*/
+  // parent.openGetFiles();
+  parent.console.log("jj")
+  /* var linksImages = [
+    "https://cdn.glitch.global/c3ddef40-7488-4cf8-a47e-8a5f00e49899/1.jpg?v=1722656348962",
+    "https://cdn.glitch.global/c3ddef40-7488-4cf8-a47e-8a5f00e49899/2.jpg?v=1722656333427",
+    "https://cdn.glitch.global/c3ddef40-7488-4cf8-a47e-8a5f00e49899/3.jpg?v=1722656322513",
+    "https://cdn.glitch.global/c3ddef40-7488-4cf8-a47e-8a5f00e49899/4.jpg?v=1722656315310"
+  ];/**/
+  var btn_edit = document.getElementById("btn_edit")
+  var content_edit = document.getElementById("content_edit")
+  var content = document.getElementById("content");
+  var btn_more = document.getElementById("btn_more");
+  btn_more.onclick = ()=> {
+    parent.tab_content.style.transform = "translateY(100px)"
+    parent.getImage(function() {
+      parent.tab_content.style.transform = "translateY(0)"
+    }, function(_img) {
+      var item = document.createElement("div");
+      item.className = "item"
+      var img = document.createElement("img");
+      img.src = _img
+      var clear = document.createElement("div");
+      clear.innerHTML = `
+      <svg>
+      <use xlink:href="#icon_delete" />
+      </svg>`
+      item.appendChild(img)
+      item.appendChild(clear)
+      content_edit.appendChild(item)
+      parent.tab_content.style.transform = "translateY(0)"
+    })
+  }
+  var _data = [];
+  getCustomAds(function(data) {
+    var res = JSON.parse(data);
+    if (data != null) {
+      // console.log(res.type_user)
+      if (res.type_user.trim() == "admin") {
+        btn_edit.style.display = "block";
+      }
+      _data = res.data;
+      if (res.data != 0 || data != null) {
+
+        //
+        editAds(content_edit, res.data);
+        addCustomAds("content", res.data);
+      } else {
+        document.getElementById("id_error").style.display = "block"
+      }
+    }
+  })
+  var isEdit = true;
+  btn_edit.onclick = function() {
+    content.innerText = "";
+    console.log(isEdit)
+    if (isEdit) {
+      content.style.display = "none"
+      content_edit.style.display = "flex"
+      isEdit = false;
+      parent.setIconUse(btn_edit, "icon_close")
+      btn_edit.style.transform = "rotate(360deg)"
+    } else {
+      content.style.display = "flex"
+      content_edit.style.display = "none";
+      isEdit = true;
+      parent.setIconUse(btn_edit, "icon_edit");
+      btn_edit.style.transform = "rotate(0)"
+    }
+  }
+
+  function editAds(cont, data) {
+    for (let i = 0; i < data.length; i++) {
+      var item = document.createElement("div");
+      item.className = "item"
+      var img = document.createElement("img");
+      img.src = data[i];
+      var clear = document.createElement("div");
+      clear.innerHTML = `
+      <svg>
+      <use xlink:href="#icon_delete" />
+      </svg>`
+      item.appendChild(img)
+      item.appendChild(clear)
+      cont.appendChild(item)
+    }
+  }
+</script>

@@ -1,0 +1,190 @@
+.room-container {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  overflow: hidden;
+}
+.container-messages {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chat-message {
+  display: block;
+  margin-bottom: 2px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  font-size: 16px;
+}
+
+.user-message {
+  flex-wrap: wrap;
+  align-self: flex-end;
+
+  background-color: #007bff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 5px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-width: 70%;
+  /*min-width: 30%;*/
+  margin-left: 100px;
+}
+.img-profile-chat {
+  width: 25px;
+  height: 25px;
+  border-radius: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--bgActionBar);
+  background-size: cover;
+}
+.received-message {
+  align-self: flex-start;
+  background-color: var(--bgActionBar);
+  padding-top: 2px;
+  padding-left: 2px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-width: 70%;
+  /*  min-width: 30%;*/
+  margin-right: 100px;
+}
+.received-message p {
+  margin-left: 5px;
+}
+.received-message b {
+  margin-left: 5px;
+}
+
+.input-container {
+  transition: all 0.5s ease;
+  transform: translateY(100px);
+  position: fixed;
+  background: var(--bgActionBar);
+  width: 100vw;
+  bottom: 0;
+  z-index: 4;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  display: flex;
+  flex-direction: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.message-input {
+  outline: 0;
+  overflow-y: auto;
+  max-height: 250px;
+  flex: 1;
+  padding: 10px;
+  margin: 2px auto;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border: 1px solid transparent;
+  transition: border 0.3s ease-in-out;
+}
+.message-input:not(:empty)[placeholder]::before {
+  opacity: 0;
+  transform: translateX(-10px) scale(0.6);
+  transition: all 0.2s ease;
+}
+.message-input:focus {
+  border-color: var(--textColor);
+  border-width: 1px;
+}
+.message-input[placeholder]::before {
+  content: attr(placeholder);
+  color: var(--textHint);
+  transition: color 0.3s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+}
+.btn-input {
+  border-radius: 50px;
+  background: var(--button);
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  margin: 2px;
+}
+.get-files-content {
+  transition: all 0.5s ease;
+  transform: translateY(100px);
+  position: fixed;
+  background: var(--bgActionBar);
+  width: 100vw;
+  bottom: 0;
+  z-index: 4;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  display: flex;
+  flex-direction: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.image-to-send-content {
+  transition: all 0.5s ease;
+  top: 0;
+  position: fixed;
+  display: flex;
+  background: var(--bgActionBar);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  transform: translateY(150vh);
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  flex-wrap: wrap;
+}
+.image-to-send-content img {
+  width: 100%;
+}
+.chat-image {
+  width: 100px;
+  border-radius: 5px;
+}
+.content-detalis-profile {
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: all 0.5s ease;
+  transform: translateX(-100vw);
+  backdrop-filter: blur(3px);
+}
+.content-detalis-profile .item {
+  background: var(--bgActionBar);
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  position: relative;
+  max-width: 50vw;
+}

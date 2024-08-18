@@ -1,0 +1,20 @@
+:root.dark {
+  --textColor: #e4e4e4;
+  --bgItem: #4c4c4c;
+  --bgBody: #333333;
+  --bgActionBar: #242323;
+  --btnActive: green;
+  --colorControl: #7af38b;
+  --bgBtn: #414141;
+  --textHint: #b2b2b2;
+}
+:root {
+  --textColor: #424242;
+  --bgItem: white;
+  --bgBody: #e1e3e5;
+  --bgActionBar: white;
+  --colorControl: green;
+  --bgBtn: #b4f8bd;
+  --btnActive: #d5fdda;
+  --textHint: #666666;
+}

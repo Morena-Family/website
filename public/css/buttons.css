@@ -1,0 +1,116 @@
+.btn-round {
+  width: 40px;
+  height: 40px;
+  border-radius: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--bgActionBar);
+  background-size: cover;
+  transition: all 0.5s ease;
+}
+.btn-round svg {
+  width: 100%;
+  height: 100%;
+}
+.btn-round-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--bgActionBar);
+  background-size: cover;
+  transition: all 0.5s ease;
+}
+.btn-round-small svg {
+  width: 100%;
+  height: 100%;
+}
+#btn_profile {
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+}
+.btn-more {
+  position: absolute;
+  top: 10px;
+  right: -50px;
+}
+.img-active {
+  border: 2px solid var(--colorControl);
+  transform: translateY(-10px);
+}
+.text-active {
+  text-shadow: var(--bgBody) 1px 0px 1px;
+  color: var(--colorControl);
+}
+.btn-normal {
+  color: var(--textColor);
+  background: var(--bgBtn);
+  font-weight: bold;
+  border: 0 solid black;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+}
+.btn-start-chat {
+  position: fixed;
+  z-index: 3;
+  bottom: 100px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid var(--bgActionBar);*/
+  background-size: cover;
+  transition: all 1.0s ease;
+  transform: translateY(100px);
+}
+.btn-start-chat svg {
+  width: 100%;
+  height: 100%;
+}
+#btn_close_get_files {
+  position: relative;
+  left: 10px;
+}
+.btn-capture-photo {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  left: calc(50vw - 30px);
+  bottom: 60px;
+}
+.btn-change-camera {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  left: calc(50vw + 50px);
+  bottom: 70px;
+}
+.btn-change-img-profile {
+  position: relative;
+  bottom: 45px;
+  right: -65px;
+}
+button {
+  background-color: var(--bgBtn);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: var(--textColor);
+  border: 0;
+  margin: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: all 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+button:active {
+  background-color: var(--btnActive);
+}
