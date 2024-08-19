@@ -15,6 +15,8 @@ var content_camera = document.getElementById("content_camera");
 var content_detalis_profile = document.getElementById("content_detalis_profile");
 var content_login = document.getElementById("content_login");
 var content_profile = document.getElementById("content_profile");
+var content_tools_admin = document.getElementById("content_tools_admin");
+var content_add_user = document.getElementById("content_add_user");
 
 var get_files_content = document.getElementById("get_files_content");
 var image_to_send_content = document.getElementById("image_to_send_content");
@@ -42,12 +44,14 @@ var btn_add_article = document.getElementById("btn_add_article");
 var btn_add_aid = document.getElementById("btn_add_aid");
 var btn_post_aid = document.getElementById("btn_post_aid");
 var btn_admin_more = document.getElementById("btn_admin_more");
+var btn_tools_add_user = document.getElementById("btn_tools_add_user");
 
 var btn_close_chat = document.getElementById("btn_close_chat");
 var btn_close_get_files = document.getElementById("btn_close_get_files");
 var btn_close_image_to_send = document.getElementById("btn_close_image_to_send");
 var btn_close_camera = document.getElementById("btn_close_camera");
 var btn_close_details_profile = document.getElementById("btn_close_details_profile");
+var btn_close_add_user = document.getElementById("btn_close_add_user");
 
 var viewPage = new ViewPage("content");
 var chatRoom = new ChatRoom(content_chat_room);
@@ -66,8 +70,9 @@ getStatus(function(status) {
       btn_add_event.style.display = "block";
       btn_add_article.style.display = "block";
       btn_add_aid.style.display = "block";
-      btn_admin_more.style.transform = "translateY(0)"
+      content_tools_admin.style.transform = "translateY(0)"
       content_profile.style.display = "flex";
+      content_add_user.style.display = "flex";
       break;
     case "observer": default:
       content_chat_room.innerHTML = "<h2>No estás registrado</h2>";
@@ -209,7 +214,50 @@ function getImage(close, callback) {
     close();
   }
 };
-
+function openToolsAdmin() {
+  btn_admin_more.style.transform = "rotate(225deg)";
+  for (var i = 0; i < content_tools_admin.childNodes.length; i++) {
+    var item = content_tools_admin.childNodes[i];
+    if (item.localName == "div") {
+      if (item.classList.contains("item")) {
+        item.style.transform = "translateY(0) rotate(360deg)"
+        item.classList.add("active");
+      }
+    }
+  }
+}
+function closeToolsAdmin() {
+  btn_admin_more.style.transform = "rotate(0)";
+  for (var i = 0; i < content_tools_admin.childNodes.length; i++) {
+    var item = content_tools_admin.childNodes[i];
+    if (item.localName == "div") {
+      if (item.classList.contains("item")) {
+        item.style.transform = "translateY(calc(100% + 15px)) rotate(0)";
+        item.classList.remove("active");
+      }
+    }
+  }
+}
+var isHiddenToolsAdmin = false;
+btn_admin_more.onclick = function() {
+  isHiddenToolsAdmin = !isHiddenToolsAdmin;
+  if (isHiddenToolsAdmin) {
+    openToolsAdmin();
+  } else {
+    closeToolsAdmin();
+  }
+}
+btn_tools_add_user.onclick = function() {
+  isHiddenToolsAdmin = !isHiddenToolsAdmin;
+  closeToolsAdmin();
+  content_add_user.style.transform = "translateY(0)";
+  btn_close_add_user.style.transform = "rotate(360deg)";
+}
+btn_close_add_user.style.transition = "all 1s ease";
+btn_close_add_user.onclick = function() {
+  content_add_user.style.transform = "translateY(100vh)";
+  btn_close_add_user.style.transform = "rotate(0)";
+}
 function getDetailsProfile(img, user, user_id, info) {
   content_detalis_profile.style.transform = "translateX(0)";
   btn_close_details_profile.style.transform = "rotate(360deg)";
@@ -269,33 +317,33 @@ tabActive("btn_chat_room", function() {
   viewPage.move(0);
 
   btn_start_chat.style.transform = "translateY(0)";
-  btn_admin_more.style.transform = "translateY(150px)"
+  content_tools_admin.style.transform = "translateY(150px)"
 });
 tabActive("btn_event", function() {
   viewPage.move(1);
 
 
   btn_start_chat.style.transform = "translateY(100px)"
-  btn_admin_more.style.transform = "translateY(0)"
+  content_tools_admin.style.transform = "translateY(0)"
 });
 tabActive("btn_home", function() {
   viewPage.move(2);
 
 
   btn_start_chat.style.transform = "translateY(100px)"
-  btn_admin_more.style.transform = "translateY(0)"
+  content_tools_admin.style.transform = "translateY(0)"
 });
 tabActive("btn_top", function() {
   viewPage.move(3);
 
 
   btn_start_chat.style.transform = "translateY(100px)"
-  btn_admin_more.style.transform = "translateY(0)"
+  content_tools_admin.style.transform = "translateY(0)"
 });
 tabActive("btn_help", function() {
   viewPage.move(4);
   btn_start_chat.style.transform = "translateY(100px)"
-  btn_admin_more.style.transform = "translateY(0)"
+  content_tools_admin.style.transform = "translateY(0)"
 });
 /*Creación del Drawer Bar */
 drawerBar.type = "top";

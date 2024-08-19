@@ -133,12 +133,11 @@
 <script src="./js/client.js"></script>
 <script src="./js/design.js"></script>
 <script>
-  if (window.eruda) {
+  /*if (window.eruda) {
     eruda.init({
       theme: 'dark'
     });
-  }
-  // parent.openGetFiles();
+  }*/
   var btn_edit = document.getElementById("btn_edit")
   var content_edit = document.getElementById("content_edit")
   var content = document.getElementById("content");
@@ -167,14 +166,11 @@
   getCustomAds(function(data) {
     var res = JSON.parse(data);
     if (data != null) {
-      // console.log(res.type_user)
       if (res.type_user.trim() == "admin") {
         btn_edit.style.display = "block";
       }
       _data = res.data;
       if (res.data != 0 || data != null) {
-
-        //
         editAds(content_edit, res.data);
         addCustomAds("content", res.data);
       } else {
@@ -182,9 +178,9 @@
       }
     }
   })
+
   var isEdit = true;
   btn_edit.onclick = function() {
-    //    content.innerText = "";
     console.log(isEdit)
     if (isEdit) {
       content.style.display = "none"
@@ -217,6 +213,7 @@
       cont.appendChild(item)
     }
   }
+
   function addCustomAds(id, linksImages) {
     var content = document.getElementById(id);
     content.className = "custom-ads"
@@ -248,7 +245,7 @@
     var a = 0;
     window.setInterval(function() {
       var item = listItem[COUNT_ITEM];
-      a+=1;
+      a += 1;
       switch (a) {
         case 1:
           item.style.transform = `translateX(0) scale(1)`;
