@@ -13,19 +13,21 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  role: {
-    type: String,
-    enum: ['admin', 'user'],
-    default: 'user'
+  accLevel: {
+    type: Number,
+    enum: [
+     -1, // banned
+      0, // guest - unverified user
+      2, // user
+      2, // admin
+      3, // superadmin
+    ],
+    default: 0,
   },
   createdAt: {
     type: Date,
     default: Date.now
-  },
-  verified: {
-    type: Boolean,
-    default: false
-  }
+  }, 
 });
 
 const User = mongoose.model('User', userSchema);
