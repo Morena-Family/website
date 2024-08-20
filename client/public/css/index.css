@@ -61,8 +61,10 @@ html, body {
   height: 20px;
   margin-top: 10px;
   bottom: 20px;
-  left: 20px;
-
+  left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .bottom-bar {
   position: fixed;

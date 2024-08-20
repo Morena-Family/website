@@ -31,6 +31,14 @@ var details_profile_info = document.getElementById("details_profile_info");
 var input_password_login = document.getElementById('input_password_login');
 var btn_show_password = document.getElementById('btn_show_password_login');
 var input_content_password_login = document.getElementById('input_content_password_login');
+var input_add_user_name = document.getElementById('input_add_user_name');
+var input_add_user_slid = document.getElementById('input_add_user_slid');
+var input_add_user_content_password = document.getElementById('input_add_user_content_password');
+var input_add_user_password = document.getElementById('input_add_user_password');
+var btn_add_user_show_password = document.getElementById('btn_add_user_show_password');
+var input_add_user_content_password_2 = document.getElementById('input_add_user_content_password_2');
+var input_add_user_password_2 = document.getElementById('input_add_user_password_2');
+var btn_add_user_show_password_2 = document.getElementById('btn_add_user_show_password_2');
 
 var btn_start_chat = document.getElementById("btn_start_chat");
 var btn_send_message = document.getElementById("btn_send_message");
@@ -73,12 +81,16 @@ getStatus(function(status) {
       content_tools_admin.style.transform = "translateY(0)"
       content_profile.style.display = "flex";
       content_add_user.style.display = "flex";
+      setEditPassword(input_add_user_content_password, input_add_user_password, btn_add_user_show_password);
+      setEditPassword(input_add_user_content_password_2, input_add_user_password_2, btn_add_user_show_password_2);
+  
       break;
     case "observer": default:
       content_chat_room.innerHTML = "<h2>No estás registrado</h2>";
       drawerBar.disable = true;
       content_login.style.display = "block";
-      setEditPassword(input_content_password_login, input_password_login, btn_show_password)
+      setEditPassword(input_content_password_login, input_password_login, btn_show_password);
+          //  setEditPassword(input_content_password_login, input_password_login, btn_show_password);
       break;
   }
 })

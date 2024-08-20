@@ -159,7 +159,9 @@
       </div>
     </div>
     <div class="title-bar">
-      <h2> La Morena </h2>
+
+      <img src="/icon.jpg" style="margin-right:5px;max-height: 50px;max-width: 50px;z-index:200;border-radius:200px; position: relative;">
+      <h2>La Morena </h2>
     </div>
     <div id="g_translate">
     </div>
@@ -252,7 +254,6 @@
       </div>
       <b>Eventos</b>
     </div>
-
     <div class="bottom-bar-item">
       <div id="btn_home" class="btn-round">
         <svg>
@@ -377,16 +378,16 @@
   </div>
   <div id="content_add_user" class="content-add-user">
     <div class="content-item-add-user">
-      <div class="input-edit" placeholder="Nombre" contenteditable="true"></div>
-      <div class="input-edit" placeholder="Id" contenteditable="true"></div>
+      <div id="input_add_user_name" class="input-edit" placeholder="Nombre" contenteditable="true"></div>
+      <div id="input_add_user_slid" class="input-edit" placeholder="Id" contenteditable="true"></div>
       <!--<div class="content-input-password">-->
-      <div id="input_content_password_login" class="input-password" placeholder="Contraseña">
-        <input id="input_password_login" type="password"><div id="btn_show_password_login" class="btn-password">
+      <div id="input_add_user_content_password" class="input-password" placeholder="Contraseña">
+        <input id="input_add_user_password" type="password"><div id="btn_add_user_show_password" class="btn-password">
           <svg><use xlink:href="#icon_show_password" /></svg>
         </div>
       </div>
-      <div id="input_content_password_login" class="input-password" placeholder="Repetir contraseña">
-        <input id="input_password_login" type="password"><div id="btn_show_password_login" class="btn-password">
+      <div id="input_add_user_content_password_2" class="input-password" placeholder="Repetir contraseña">
+        <input id="input_add_user_password_2" type="password"><div id="btn_add_user_show_password_2" class="btn-password">
           <svg><use xlink:href="#icon_show_password" /></svg>
         </div>
       </div>
@@ -396,40 +397,40 @@
     </div>
     <div id="btn_close_add_user" style="width:50px;height:50px;margin:10px;"class="btn-round">
       <svg>
-      <use xlink:href="#icon_close" />
+        <use xlink:href="#icon_close" />
       </svg>
-      </div>
-      </div>
-      <div id="content_tools_admin" class="content-tools-admin">
+    </div>
+  </div>
+  <div id="content_tools_admin" class="content-tools-admin">
 
-      <div text="Add user" id="btn_tools_add_user" class="btn-round item">
+    <div text="Add user" id="btn_tools_add_user" class="btn-round item">
       <svg>
-      <use xlink:href="#icon_add_user" />
+        <use xlink:href="#icon_add_user" />
       </svg>
-      </div>
-      <div id="btn_admin_more" class="btn-admin-more">
+    </div>
+    <div id="btn_admin_more" class="btn-admin-more">
       <svg>
-      <use xlink:href="#icon_more" />
+        <use xlink:href="#icon_more" />
       </svg>
-      </div>
-      </div>
-      <!-- <div id="id_drawer_left" class="drawer-left">
-      <div id="btn_more" class="btn-round"></div>
-      <h1 class="title-drawer-left">Eventos</h1>
-      <div id="content_event" class="content-event">
-      <div style="height:50px"></div>
-      </div>
-      </div>
-      --->
-      <script src="./js/index.js"></script>
-      <script type="text/javascript">
-      document.cookie = "googtrans=/auto/en; path=/";
-      function googleTranslateElementInit() {
+    </div>
+  </div>
+  <!-- <div id="id_drawer_left" class="drawer-left">
+                                                                            <div id="btn_more" class="btn-round"></div>
+                                                                            <h1 class="title-drawer-left">Eventos</h1>
+                                                                            <div id="content_event" class="content-event">
+                                                                              <div style="height:50px"></div>
+                                                                            </div>
+                                                                          </div>
+                                                                            --->
+  <script src="./js/index.js"></script>
+  <script type="text/javascript">
+    document.cookie = "googtrans=/auto/en; path=/";
+    function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-      pagedLanguage: 'en', includedLanguages: 'en,tl,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true
+        pagedLanguage: 'en', includedLanguages: 'en,tl,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true
       }, 'g_translate');
-      }
-      </script>
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      </body>
-      </html>
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
