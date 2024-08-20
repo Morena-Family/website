@@ -1,5 +1,14 @@
 
 const {PORT} = require('../config');
-const app = require('./app');
+const { connectDatabase } = require('./boot/database');
+const app = require('./boot/app');
 
-app.listen(PORT, () => console.log(`Servidor iniciado, puerto ${PORT}`));
+// setup
+const main = async () => {
+    await connectDatabase();
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
+
+main();

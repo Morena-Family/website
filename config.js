@@ -1,8 +1,7 @@
+require('dotenv').config();
 
 module.exports = {
   PORT: process.env.PORT || 3000,
-  CLIENT: __dirname + '/client',
-  ARTICLES: __dirname + '/json/articles.json',
-  CUSTOM_ADS: __dirname + '/json/custom_ads.json',
-  EVENTS: __dirname + '/json/events.json',
+  MONGO_URI: `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}`,
+  CLIENT: __dirname + '/client', 
 };

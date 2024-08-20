@@ -1,5 +1,2 @@
 
-const app = require('./server');
-
-// Already running...
-// app.listen(3000);
+const server = require('./server');
